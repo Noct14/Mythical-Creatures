@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 30% 8%;
+    --foreground: 40 85% 95%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 40 85% 95%;
+
+    --popover: 220 30% 10%;
+    --popover-foreground: 40 85% 95%;
+
+    --primary: 42 100% 62%;
+    --primary-foreground: 220 30% 8%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 40 85% 95%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 40 20% 65%;
+
+    --accent: 42 90% 55%;
+    --accent-foreground: 220 30% 8%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 40 85% 95%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 18%;
+    --ring: 42 100% 62%;
+
+    --radius: 0.75rem;
+
+    /* Mystical custom tokens */
+    --magical-glow: 42 100% 62%;
+    --shadow-mystical: 0 10px 40px -10px hsl(42 100% 62% / 0.3);
+    --gradient-mystical: linear-gradient(135deg, hsl(220 30% 12%), hsl(220 25% 8%));
+    --gradient-card: linear-gradient(145deg, hsl(220 25% 14%), hsl(220 25% 10%));
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, hsl(220 30% 8%), hsl(220 25% 5%));
+    min-height: 100vh;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+@layer utilities {
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--magical-glow) / 0.5);
+  }
+  
+  .magical-border {
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 0 20px hsl(var(--magical-glow) / 0.2);
+  }
+  
+  /* Smooth scrolling behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Parallax performance optimization */
+  .parallax-container {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
